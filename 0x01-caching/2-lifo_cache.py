@@ -32,7 +32,7 @@ class LIFOCache(BaseCaching):
         keys = list(self.cache_data.keys())
         if cache_size > BaseCaching.MAX_ITEMS:
             d = self.cache_data.pop(keys[-2])
-            print("Discard:", keys[-2])
+            print("DISCARD:", keys[-2])
 
     def get(self, key):
         """Gets the value of key in the cache object
