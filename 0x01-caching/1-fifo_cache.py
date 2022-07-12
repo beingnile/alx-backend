@@ -29,9 +29,10 @@ class FIFOCache(BaseCaching):
             return
         self.cache_data.update(dict({key: item}))
         cache_size = len(self.cache_data.items())
+        keys = list(self.cache_data.keys())
         if cache_size > BaseCaching.MAX_ITEMS:
-            d = (k := next(iter(self.cache_data)), self.cache_data.pop(k))
-            print("DISCARD: ", d[0])
+            d = self.cache_data.pop(keys[0])
+            print("DISCARD:", keys[0])
 
     def get(self, key):
         """Gets the value of key in the cache object
