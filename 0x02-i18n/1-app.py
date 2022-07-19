@@ -16,7 +16,7 @@ class Config(object):
     LANGUAGES = ["en", "fr"]
 
 
-app.config.from_object('Config')
+app.config.from_object('1-app.Config')
 
 
 @app.route("/")
