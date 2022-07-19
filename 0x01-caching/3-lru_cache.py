@@ -38,9 +38,15 @@ class LRUCache(BaseCaching):
         if cache_size > BaseCaching.MAX_ITEMS:
             sort_track = sorted(self.track.items(), key=lambda item: item[1])
             track_keys = dict(sort_track).keys()
-            d = self.cache_data.pop(list(track_keys)[0])
-            d = self.track.pop(list(track_keys)[0])
-            print("DISCARD:", sort_track[0][0])
+            discard = list(track_keys)[0]
+            if discard == key:
+                discard = list(track_keys)[1]
+                d = self.cache_data.pop(discard)
+                d = self.track.pop(discard)
+            else:
+                d = self.cache_data.pop(discard)
+                d = self.track.pop(discard)
+            print("DISCARD:", discard)
 
     def get(self, key):
         """Returns the value in self.cache_data linked to key

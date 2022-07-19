@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Defines a basic flask app
+Configures available languages for i18n
 """
 
 from flask import Flask, render_template
